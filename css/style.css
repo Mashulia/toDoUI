@@ -1,0 +1,172 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #202020;
+  background-color: #e5e5e5;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+.container {
+  width: 476px;
+  min-height: 688px;
+  margin: 200px auto;
+  padding: 25px 8px;
+  background-color: #ffffff;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-weight: 400;
+  font-style: 18px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #000000;
+}
+
+.row {
+  position: relative;
+}
+
+.input {
+  display: block;
+  padding: 12px 57px 12px 12px;
+  margin-bottom: 8px;
+  width: 100%;
+  font: inherit;
+  color: #202020;
+  border: 1px solid #989898;
+  border-radius: 6px;
+}
+
+.input::placeholder {
+  color: #bbbbbb;
+}
+
+.button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  width: 45px;
+  height: 42px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.button::before,
+.button::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  width: 13px;
+  height: 1px;
+  background-color: #998899;
+}
+
+.button-add::after {
+  transform: rotate(-90deg);
+}
+
+.button-delete {
+  position: relative;
+  width: 15px;
+  height: 15px;
+}
+
+.button-delete::after,
+.button-delete::before {
+  left: 0;
+  width: 15px;
+}
+
+.button-delete::after {
+  transform: rotate(-45deg);
+}
+
+.button-delete::before {
+  transform: rotate(45deg);
+}
+
+ul {
+  margin: 0;
+  margin-bottom: 12px;
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 12px;
+  border: 1px solid #989898;
+  border-radius: 6px;
+}
+
+li.checked {
+  background-color: #f4f4f4;
+  ;
+}
+
+.label {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-right: 18px;
+}
+
+.checkbox-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 21px;
+  height: 21px;
+  margin-right: 12px;
+  border-radius: 50%;
+  border: 1px solid #998899;
+}
+
+.checkbox-control::after {
+  display: none;
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+}
+
+.checkbox:checked~.checkbox-control::after {
+  display: block;
+}
+
+.text {
+  margin: 0;
+  max-width: 370px;
+}

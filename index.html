@@ -16,12 +16,12 @@
   <h1 class="visually-hidden">Планер задач</h1>
   <div class="container">
     <h2 class="title">high</h2>
-    <div class="row">
+    <form class="form" action="#" method="get">
       <input class="input high" type="text" placeholder="Добавить важных дел">
-      <button class="button button-add high" type="button" title="Добавить задачу">
+      <button class="button button-add high" type="submit" title="Добавить задачу">
         <span class="visually-hidden">Добавить важную задачу</span>
       </button>
-    </div>
+    </form>
     <ul class="high-priority-list">
       <!-- <li>
         <label class="label">
@@ -35,15 +35,15 @@
       </li> -->
     </ul>
     <h2 class="title">low</h2>
-    <div class="row">
-      <input class="input low" type="text" placeholder="Добавить">
-      <button class="button button-add low" type="button" title="Добавить задачу">
+    <form class="form" action="#" method="get">
+      <input class="input" type="text" placeholder="Добавить">
+      <button class="button button-add" type="submit" title="Добавить задачу">
         <span class="visually-hidden">Добавить задачу</span>
       </button>
-    </div>
+    </form>
     <ul class="low-priority-list"></ul>
   </div>
-  <script src="js/main.js" type="module"></script>
+  <script src="js/view.js" type="module"></script>
 </body>
 
 </html>

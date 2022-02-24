@@ -96,7 +96,14 @@ function showTaskByPriority() {
 FORMS.forEach((form) => {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    addTask(event);
-    showTaskByPriority();
+    let input = form.querySelector(".input");
+    let task = input.value;
+    let isInTaskList = taskList.find(item => item.name === task)
+    if (!isInTaskList) {
+      addTask(event);
+      showTaskByPriority();
+    } else {
+      input.value = "";
+    }
   });
 });

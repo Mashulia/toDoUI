@@ -35,14 +35,11 @@ function addTask(event) {
   } else {
     priority = PRIORITY.LOW;
   }
-  if (input.value !== "") {
-    taskList.push({
-      name: task,
-      status: DEFAULT_STATUS,
-      priority: priority,
-    });
-    input.value = "";
-  }
+  taskList.push({
+    name: task,
+    status: DEFAULT_STATUS,
+    priority: priority,
+  });
 }
 
 function deleteTask(event) {
@@ -118,7 +115,7 @@ FORMS.forEach((form) => {
     let input = form.querySelector(".input");
     let task = input.value;
     let isInTaskList = taskList.find(item => item.name === task);
-    if (!isInTaskList) {
+    if (input.value !== "" && !isInTaskList) {
       addTask(event);
       let item = taskList[taskList.length - 1];
       showTaskByPriority(item);

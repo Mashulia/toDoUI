@@ -122,6 +122,7 @@ FORMS.forEach((form) => {
       addTask(event);
       let item = taskList[taskList.length - 1];
       showTaskByPriority(item);
+      input.value = "";
     } else {
       input.value = "";
     }

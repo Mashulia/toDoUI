@@ -7,7 +7,24 @@ const LISTS = {
   LIST_LOW_PRIORITY: document.querySelector(".low-priority-list"),
 };
 
-let taskList = [];
+let taskList = [
+  {
+    name: "Вот вам и супер интересная тема. Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной программы.",
+    status: STATUSES.TO_DO,
+    priority: PRIORITY.HIGH,
+  },
+  { name: "Сверстать этот todo list", status: STATUSES.TO_DO, priority: PRIORITY.HIGH },
+  {
+    name: "Начать делать задачу",
+    status: STATUSES.DONE,
+    priority: PRIORITY.HIGH,
+  },
+  {
+    name: "Посмотреть ютубчик",
+    status: STATUSES.TO_DO,
+    priority: PRIORITY.LOW,
+  },
+];
 
 function addTask(event) {
   let priority;
@@ -49,7 +66,6 @@ function changeStatus(event) {
 
 function colorTask(event) {
   let item = event.target.parentElement.parentElement;
-  console.log(item);
   item.classList.toggle("checked");
 }
 
@@ -83,9 +99,12 @@ function createListItem(item) {
   return li;
 }
 
-function showTaskByPriority() {
-  let item = taskList[taskList.length - 1];
+function showTaskByPriority(item) {
   let li = createListItem(item);
+  if (item.status === STATUSES.DONE) {
+    li.classList.add("checked");
+    li.querySelector("input").setAttribute("checked", true);
+  }
   if (item.priority === PRIORITY.HIGH) {
     LISTS.LIST_HIGH_PRIORITY.append(li);
   } else {
@@ -98,12 +117,16 @@ FORMS.forEach((form) => {
     event.preventDefault();
     let input = form.querySelector(".input");
     let task = input.value;
-    let isInTaskList = taskList.find(item => item.name === task)
+    let isInTaskList = taskList.find(item => item.name === task);
     if (!isInTaskList) {
       addTask(event);
-      showTaskByPriority();
+      let item = taskList[taskList.length - 1];
+      showTaskByPriority(item);
     } else {
       input.value = "";
     }
   });
 });
+taskList.forEach(element => {
+  showTaskByPriority(element);
+})

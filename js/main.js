@@ -8,5 +8,3 @@ export const PRIORITY = {
   LOW: "low",
 };
 export const DEFAULT_STATUS = STATUSES.TO_DO;
-export let taskList = [];
-

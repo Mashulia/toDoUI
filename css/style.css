@@ -128,9 +128,12 @@ li {
   border-radius: 6px;
 }
 
+li+li {
+  margin-top: 8px;
+}
+
 li.checked {
   background-color: #f4f4f4;
-  ;
 }
 
 .label {
@@ -138,6 +141,7 @@ li.checked {
   align-items: flex-start;
   justify-content: space-between;
   margin-right: 18px;
+  cursor: pointer;
 }
 
 .checkbox-control {
@@ -152,18 +156,13 @@ li.checked {
   border: 1px solid #998899;
 }
 
-.checkbox-control::after {
-  display: none;
+.checkbox:checked~.checkbox-control::after {
   position: absolute;
   content: "";
   width: 15px;
   height: 15px;
   border-radius: 50%;
   background-color: #c4c4c4;
-}
-
-.checkbox:checked~.checkbox-control::after {
-  display: block;
 }
 
 .text {

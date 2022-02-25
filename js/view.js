@@ -13,7 +13,11 @@ let taskList = [
     status: STATUSES.TO_DO,
     priority: PRIORITY.HIGH,
   },
-  { name: "Сверстать этот todo list", status: STATUSES.TO_DO, priority: PRIORITY.HIGH },
+  {
+    name: "Сверстать этот todo list",
+    status: STATUSES.TO_DO,
+    priority: PRIORITY.HIGH,
+  },
   {
     name: "Начать делать задачу",
     status: STATUSES.DONE,
@@ -114,17 +118,25 @@ FORMS.forEach((form) => {
     event.preventDefault();
     let input = form.querySelector(".input");
     let task = input.value;
-    let isInTaskList = taskList.find(item => item.name === task);
-    if (input.value !== "" && !isInTaskList) {
+    let isInTaskList = taskList.find((item) => item.name === task);
+
+    try {
+      if (input.value === "") {
+        throw new Error("Вы не ввели задачу!");
+      }
+      if (isInTaskList) {
+        throw new Error("Такая задача уже есть в списке!");
+      }
       addTask(event);
       let item = taskList[taskList.length - 1];
       showTaskByPriority(item);
       input.value = "";
-    } else {
+    } catch (error) {
+      console.log(error);
       input.value = "";
     }
   });
 });
-taskList.forEach(element => {
+taskList.forEach((element) => {
   showTaskByPriority(element);
-})
+});
